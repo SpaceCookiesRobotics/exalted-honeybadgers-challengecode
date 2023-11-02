@@ -54,21 +54,21 @@ void pre_auton(void) {
 /*                                                                           */
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
-void v_Set(){
-  LMotor.setVelocity(50, percent);
-  RMotor.setVelocity(50, percent);
-  Arm.setVelocity(40, percent);
-  Claw.setVelocity(50, percent);
+void v_Set(){ // Function created to set initial velocity of robot!
+  LMotor.setVelocity(50, percent); // Left motor speed!
+  RMotor.setVelocity(50, percent); // Right motor speed!
+  Arm.setVelocity(40, percent); // Arm speed!
+  Claw.setVelocity(50, percent); // Claw speed!
 }
 void autonomous(void) {
-  v_Set();
-  wait(1, seconds);
-  LMotor.spinFor(forward, 360, degrees, false);
-  RMotor.spinFor(forward, 360, degrees, false);
-  wait(2, seconds);
-  Claw.spinFor(reverse, 145, degrees);
-  wait(1, seconds);
-  Arm.spinFor(forward, 300, degrees);
+  v_Set(); // Sets velocity of robot's main motors!
+  wait(1, seconds); // Stops all motor function for net time of 1 second!
+  LMotor.spinFor(forward, 360, degrees, false); // (L) Moves drivetrain forward!
+  RMotor.spinFor(forward, 360, degrees, false); // (R) Moves drivetrain forward!
+  wait(2, seconds); // Stops all motor function for net time of 2 seconds!
+  Claw.spinFor(reverse, 145, degrees); // Closes claw
+  wait(1, seconds); // Stops all motor function for net time of 1 second!
+  Arm.spinFor(forward, 300, degrees); // Picks up claw!
 
   // ..........................................................................
   // Insert autonomous user code here.
